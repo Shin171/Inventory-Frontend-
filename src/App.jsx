@@ -5,10 +5,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="p-5">
-      <h1 className="text-3xl font-bold text-center "> Shin Inventory System</h1>
-      <CRUD />
-    </div>
+    <CRUD />
   );
 }
 

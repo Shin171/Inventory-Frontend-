@@ -1,14 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'  // Add this line to import the path module
+import path from 'path'  
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
       '/api': {
-        target: 'https://localhost:7194/api/Product',  // Your .NET Web API URL
+        target: 'https://localhost:7194/api/Product', 
         changeOrigin: true,
         secure: false,
       },
