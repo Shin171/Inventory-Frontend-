@@ -124,14 +124,23 @@ const CRUD = () => {
 
   return (
     <div className="container p-6 mx-auto max-w-7xl">
-      <h1 className="text-4xl font-bold mb-6 text-center text-blue-600 animate-pulse">
-        Product Inventory
-      </h1>
+       <header className="flex justify-between items-center mb-6">
+        <a href="/">
+          <img
+            src="/resources/logo.png" // Make sure this path is correct
+            alt="Logo"
+            className="h-24 w-24 sm:h-32 sm:w-32 rounded-full border-2 border-blue-500 shadow-lg"
+          />
+        </a>
+        <h1 className="text-4xl font-bold mb-6 text-center text-blue-600 animate-pulse">
+          Product Inventory
+        </h1>
+      </header>
 
       {error && <div className="text-red-500 text-center mb-4">{error}</div>}
 
       {/* Form Section */}
-      <form onSubmit={saveProduct} className="mb-6 p-6 bg-white shadow-lg rounded-md">
+      <form onSubmit={saveProduct} className="mb-6 p-6 bg-white shadow-lg rounded-xl border-2 border-gray-200">
         <h2 className="text-2xl font-semibold mb-4 text-gray-700">{editingProduct ? "Edit Product" : "Add Product"}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Name */}
@@ -143,7 +152,7 @@ const CRUD = () => {
               name="name"
               value={newProduct.name}
               onChange={handleChange}
-              className="p-3 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              className="p-4 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
               required
             />
           </div>
@@ -156,7 +165,7 @@ const CRUD = () => {
               name="quantity"
               value={newProduct.quantity}
               onChange={handleChange}
-              className="p-3 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              className="p-4 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
               min="0"
               required
             />
@@ -170,7 +179,7 @@ const CRUD = () => {
               name="price"
               value={newProduct.price}
               onChange={handleChange}
-              className="p-3 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              className="p-4 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
               min="0"
               step="0.01"
               required
@@ -184,7 +193,7 @@ const CRUD = () => {
               name="category"
               value={newProduct.category}
               onChange={handleChange}
-              className="p-3 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+              className="p-4 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
               required
             >
               <option value="">Select Category</option>
@@ -208,13 +217,13 @@ const CRUD = () => {
                   inStock: !prev.inStock,
                 }))
               }
-              className="h-5 w-5 text-blue-600 focus:ring-blue-500"
+              className="h-5 w-5 text-blue-600 focus:ring-blue-500 transition duration-300"
             />
           </div>
         </div>
         <button
           type="submit"
-          className="bg-blue-600 text-white p-3 rounded-lg w-full mt-4 hover:bg-blue-700 disabled:bg-gray-400 transition duration-300"
+          className="bg-blue-600 text-white p-4 rounded-lg w-full mt-4 hover:bg-blue-700 transition duration-300 disabled:bg-gray-400"
           disabled={isLoading}
         >
           {isLoading ? "Saving..." : editingProduct ? "Update Product" : "Add Product"}
@@ -228,11 +237,11 @@ const CRUD = () => {
           placeholder="Search products..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="p-3 border border-gray-300 rounded-l-md focus:ring-2 focus:ring-blue-500 w-2/3 sm:w-1/3"
+          className="p-4 border border-gray-300 rounded-l-md focus:ring-2 focus:ring-blue-500 w-2/3 sm:w-1/3 transition duration-300"
         />
         <button
           onClick={handleSearch}
-          className="bg-blue-600 text-white p-3 rounded-r-md hover:bg-blue-700 disabled:bg-gray-400 transition duration-300"
+          className="bg-blue-600 text-white p-4 rounded-r-md hover:bg-blue-700 disabled:bg-gray-400 transition duration-300"
         >
           Search
         </button>
@@ -243,7 +252,7 @@ const CRUD = () => {
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
-          className="p-3 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
+          className="p-4 w-full border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 transition duration-300"
         >
           <option value="">Filter by Category</option>
           <option value="Food">Food</option>
@@ -254,33 +263,33 @@ const CRUD = () => {
       </div>
 
       {/* Product Table */}
-      <div className="overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="overflow-x-auto shadow-md sm:rounded-lg bg-white border-2 border-gray-200">
         {isLoading ? (
           <div className="text-center py-6">Loading products...</div>
         ) : (
           <table className="min-w-full text-sm text-gray-500">
             <thead className="bg-gray-800 text-white">
               <tr>
-                <th className="px-4 py-3 text-left">#</th>
-                <th className="px-4 py-3 text-left">Name</th>
-                <th className="px-4 py-3 text-left">Category</th>
-                <th className="px-4 py-3 text-left">Quantity</th>
-                <th className="px-4 py-3 text-left">Price</th>
-                <th className="px-4 py-3 text-left">In Stock</th>
-                <th className="px-4 py-3 text-left">Actions</th>
+                <th className="px-6 py-3 text-left">#</th>
+                <th className="px-6 py-3 text-left">Name</th>
+                <th className="px-6 py-3 text-left">Category</th>
+                <th className="px-6 py-3 text-left">Quantity</th>
+                <th className="px-6 py-3 text-left">Price</th>
+                <th className="px-6 py-3 text-left">In Stock</th>
+                <th className="px-6 py-3 text-left">Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredData.length > 0 ? (
                 filteredData.map((product, index) => (
                   <tr key={product.id} className="hover:bg-gray-100">
-                    <td className="px-4 py-2">{index + 1}</td>
-                    <td className="px-4 py-2">{product.name}</td>
-                    <td className="px-4 py-2">{product.category}</td>
-                    <td className="px-4 py-2">{product.quantity}</td>
-                    <td className="px-4 py-2">P{product.price.toFixed(2)}</td>
-                    <td className="px-4 py-2">{product.inStock ? "In Stock" : "Out of Stock"}</td>
-                    <td className="px-4 py-2">
+                    <td className="px-6 py-4">{index + 1}</td>
+                    <td className="px-6 py-4">{product.name}</td>
+                    <td className="px-6 py-4">{product.category}</td>
+                    <td className="px-6 py-4">{product.quantity}</td>
+                    <td className="px-6 py-4">P{product.price.toFixed(2)}</td>
+                    <td className="px-6 py-4">{product.inStock ? "In Stock" : "Out of Stock"}</td>
+                    <td className="px-6 py-4">
                       <button
                         onClick={() => editProduct(product)}
                         className="text-yellow-600 hover:text-yellow-800 mr-4"
