@@ -44,7 +44,7 @@ const CRUD = () => {
     category: "",
   });
   const [searchQuery, setSearchQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState(""); // Category filter state
+  const [categoryFilter, setCategory2Filter] = useState(""); // Category filter state
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [editingProduct, setEditingProduct] = useState(null);
