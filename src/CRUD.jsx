@@ -11,7 +11,7 @@ const AboutModal = ({ show, onClose }) => {
       <div className="bg-gray-900 p-6 rounded-lg shadow-lg w-11/12 sm:w-1/3">
         <h2 className="text-2xl font-bold text-center mb-4 text-white">How the System Works</h2>
         <p className="text-gray-300">
-          This Shin product inventory management system allows you to:
+          This SHIN product inventory management system allows you to:
           <ul className="list-disc ml-6">
             <li>Add, edit, and delete products.</li>
             <li>Filter products by category (Food, Clothes, PC Parts).</li>
@@ -22,8 +22,7 @@ const AboutModal = ({ show, onClose }) => {
         <div className="mt-4 text-center">
           <button
             onClick={onClose}
-            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
-          >
+            className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
             Close
           </button>
         </div>
@@ -32,6 +31,7 @@ const AboutModal = ({ show, onClose }) => {
   );
 };
 
+//CRUD Operations 
 const CRUD = () => {
   const url = 'https://localhost:7194/api/product'; 
   const [data, setData] = useState([]);
@@ -43,6 +43,7 @@ const CRUD = () => {
     inStock: false,
     category: "",
   });
+
   const [searchQuery, setSearchQuery] = useState("");
   const [categoryFilter, setCategory2Filter] = useState(""); // Category filter state
   const [isLoading, setIsLoading] = useState(false);
@@ -176,7 +177,7 @@ const CRUD = () => {
             className="h-16 w-16 rounded-full object-cover"
           />
         </a>
-        <h1 className="text-3xl font-bold text-center flex-grow">Product Inventory</h1>
+        <h1 className="text-3xl font-bold text-center flex-grow"> SHIN Product Inventory</h1>
         <button
           onClick={() => setShowAboutModal(true)}
           className="bg-blue-600 p-2 rounded-full hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 transition duration-300"
@@ -384,7 +385,7 @@ const CRUD = () => {
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white text-center p-4 mt-6">
-        <p>&copy; 2025 January : Daniel Rasheed Quillosa </p>
+        <p>&copy; Mini Project : Daniel Rasheed Quillosa </p>
       </footer>
     </div>
   );
