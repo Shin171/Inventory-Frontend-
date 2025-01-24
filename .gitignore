@@ -1,5 +1,3 @@
-vite.config.js
-
 # Logs
 logs
 *.log
@@ -16,6 +14,7 @@ dist-ssr
 
 # Editor directories and files
 .vscode/*
+.vscode/vite.config.js
 !.vscode/extensions.json
 .idea
 .DS_Store
